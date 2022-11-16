@@ -53,7 +53,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
 ### 3. Twitter Setup:
 
   3.1 We need to have a Twitter account, the basic one before we start the setup for our Twitter developer account <br>
-  3.2 Go to twitter.developer.com <br>
+  3.2 Go to (https://developer.twitter.com/en) <br>
   3.3 Sign in with the Twitter credentials <br>
   3.4 Do the initial setup - name, country, use-case <br>
   3.5 Accept the agreement <br>
