@@ -1,7 +1,7 @@
 # Real-time-Twitter-dashboard-using-Snowflake-Microsoft-Azure
 Real-Time Twitter dashboard for recent tweets using Snowflake &amp; Microsoft Azure
 
-<b> Business Overview: </b>
+## Business Overview:
 
 Delays in business operations and decision-making cause companies to lose out on opportunities and expose themselves to danger. Real-time data enables organizations to move faster since it highlights challenges and opportunities. Real-time data consists of information usable as soon as it is created, gathered, processed, and assessed in real time. 
 
@@ -11,9 +11,9 @@ To come up with such situations, I tried designing a project as a proof of conce
 
 Above shown is the snapshot of the Snowflake dashboad that shows there were two tweets extracted from the twitter API, with the  likes for each tweet between 0-20, retweets between 0-5, replies and quotes for both the tweets between 0 and 1. 
 
-<b> Flow of the project: </b>
+## Flow of the project:
 
-1. Azure Setup:  
+### 1. Azure Setup:  
 
 Azure Storage Basics: Whenever we want to look out for the cloud, the basic thing we look for is the storage structure of that particular cloud. We're using Azure Cloud Storage for our project, so the very basics types of storage in Azure Cloud are as follows:
 
@@ -33,7 +33,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
   Role in IAM of Storage Account - Storage Blob Contributor permission <br>
   Role in IAM of Storage Queue - Storage Queue Contributor permission <br>
   
-2. SnowFlake Setup:
+### 2. SnowFlake Setup:
 
   2.1 Go to the website: https://www.snowflake.com/login/ <br>
   2.2 Click on the tab 'Start for free.' <br>
@@ -50,7 +50,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
   
   Once we're done with your Snowflake and Azure setup, you need to run the snowflake worksheet attached in the code to create storage and queue integrations within snowflake to connect with the Azure storage and queue. We get our Azure Consent URLs after running both of these integrations, and we can grant permission for Azure to Snowflake using the same. We also create our database, stage, snowpipe, and table to store data in snowflake in the same script.
   
-3. Twitter Setup:
+### 3. Twitter Setup:
 
   3.1 We need to have a Twitter account, the basic one before we start the setup for our Twitter developer account <br>
   3.2 Go to twitter.developer.com <br>
@@ -60,7 +60,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
   3.6 Done <br>
   3.7 Once the developer account is created, we need to create a project inside the twitter account. Copy the bearer token API keys after creating the project as it will be used in the twitter python script. <br>
 
-4. End-to-end Flow of the project:
+### 4. End-to-end Flow of the project:
 
   4.1 Copy and paste the bearer token from the Twitter project and connection string from the Azure container in the python script to extract tweets in JSON format from Twitter API. <br>
   4.2 Run the python script on the command prompt of the local machine. <br>
