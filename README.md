@@ -7,7 +7,7 @@ Delays in business operations and decision-making cause companies to lose out on
 
 To come up with such situations, I tried designing a project as a proof of concept to get a real-time dashboard available in Snowflake powered by Twitter, Azure blob storage, and Snowflake (Snowpipe). Twitter API served as a source of information for the project. I planned on pulling the number of tweets, retweets, likes, and counts from the recent tweets we get from the Twitter API. Azure blob storage and the Snowpipe feature from Snowflake were used to push this data from Twitter to the Snowflake dashboard.
 
-![Dashboard Snapshot](/Images/Dashboard Snapshot.jpg)
+![Dashboard Snapshot](Images/Dashboard Snapshot.jpg)
 
 
 Above shown is the snapshot of the Snowflake dashboad that shows there were two tweets extracted from the twitter API, with the  likes for each tweet between 0-20, retweets between 0-5, replies and quotes for both the tweets between 0 and 1. 
