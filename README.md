@@ -25,7 +25,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
   Advanced types of services are Azure SQL, Azure Cosmos DB, and many more. This segregation of advanced and basic storage is not specified by Microsoft. Advanced services come with a database structure. The same is not the case with basic storage types in Azure. 
 
   1.1 The very first step in the project is to create an Azure account - Free Trial (if possible), as it depends on the email id used for creating the account. The email might not be eligible for a free trial if it was already used. If a free trial is not possible, choose the "Pay as you go" Subscription, where the account will be billed based on the usage. I created a free version of the Azure account, with locally redundant files having HTTPs rest and transit encryption protocols. <br>
-  1.2 Create a Resource Group and ensure to choose it for all the resources we create for this project. <br>  
+  1.2 Create a Resource Group and ensure to choose it for all the resources we create for this project.  
   1.3 Create a Storage Account. After creating the storage account, I created a container inside it. Now, we have written a python script to extract data from Twitter into a JSON format. That data will be stored in this container. <br>
   1.4 Create a Queue within that Storage Account. The queue will be used as a triggering mechanism. It will let us know that whenever a new file is landed, an event will be inserted in the queue. Lastly, we need to configure an event in the container so that the entry gets inserted into the queue. While creating an event, we give the event name, the schema is the default, the system topic name (name of the topic to which the event will be published) is given, and we select when we want to publish the event (for example blob created), and at the end, we specify the endpoint, i.e., the storage queue for us. So, whenever a blob is created in the container, an event will be triggered and will be published in the specified event name in the storage queue that we have created. <br> 
   1.5 We need to assign roles to the storage and queue account using Access Control in Azure. This will be done once we run the Snowflake commands. We get the client ids for our storage account and queue while running the snowflake commands. This allows faster communication between Snowflake and Microsoft Azure as we sign on the consent URL generated in snowflake. Roles are assigned to the snowflakes service principles. <br>
@@ -36,7 +36,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
 2. SnowFlake Setup:
 
   2.1 Go to the website: https://www.snowflake.com/login/ <br>
-  2.2 Click on the tab 'Start for free.'
+  2.2 Click on the tab 'Start for free.' <br>
   2.3 Enter your details and press continue <br>
   2.4 Select a Standard version as we're doing this project as proof of concept. <br>
   2.5 Select the data storage service you want to use. I have selected Microsoft Azure because I'll be using Azure Blob Storage for data storage. <br>
