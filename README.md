@@ -36,7 +36,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
 2. SnowFlake Setup:
 
   2.1 Go to the website: https://www.snowflake.com/login/ <br>
-  2.2 Click on the tab 'Start for free.' <br>
+  2.2 Click on the tab 'Start for free.'
   2.3 Enter your details and press continue <br>
   2.4 Select a Standard version as we're doing this project as proof of concept. <br>
   2.5 Select the data storage service you want to use. I have selected Microsoft Azure because I'll be using Azure Blob Storage for data storage. <br>
@@ -68,7 +68,7 @@ Azure Storage Basics: Whenever we want to look out for the cloud, the basic thin
   4.4 If the data is present in Azure Container, then it should also be present in the Snowflake table that we have created in our Snowflake database, as all the configurations to connect Snowflake and Azure were already done. <br>
   4.5 Lastly, create a dashboard on the Snowflake and display the results as mentioned above in the image. <br>
 
-#Thankyou so much for coming till the end of the file. Please let me know if you have any questions.
+# Thankyou so much for coming till the end of the file. Please let me know if you have any questions.
 
 
 
