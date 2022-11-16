@@ -1,0 +1,62 @@
+Snowflake Worksheet Script:
+
+//Creating a database named twitter and using it for all the below statements
+create database twitter;
+use twitter;
+
+//Creating a notification integration for azure storage queue. This will allow us to connect snowflake and azure queue. Whenever a new file is placed queue, this is 
+going to communicate about the presence of new file. We connect using the queue URL and the tenant id from the Azure Active Directory. The object name for our 
+integration functionality will be SNOWPIPE_NOTIFICTION_INT 
+create notification integration SNOWPIPE_NOTIFICATION_INT
+  enabled = true
+  type = queue
+  notification_provider = azure_storage_queue
+  azure_storage_queue_primary_uri = '<azure_queue_url>'
+  azure_tenant_id = '<azure_tenant_id>';
+
+//Describing snowpipe queue integration  
+desc integration SNOWPIPE_NOTIFICATION_INT
+  
+//Creating a storage integration for azure storage container. This will allow us to connect snowflake and azure container. We connect using the container URL and the
+tenant id from the Azure Active Directory. The object name for our integration functionality will be SNOWPIPE_STORAGE_INT
+create storage integration SNOWPIPE_STORAGE_INT
+  type = external_stage
+  storage_provider = 'azure'
+  enabled = true
+  azure_tenant_id = '<azure_tenant_id>'
+  storage_allowed_locations = ('<azure_storage_account_url (replace 'https' with 'azure')>'); 
+
+//Describing snowpipe storage integration  
+desc integration SNOWPIPE_STORAGE_INT
+  
+//Creating a table named dummy under the snowflakes twitter database
+create table twitter.public.dummy(input variant);
+
+//Creating the stage. Storage integration is passed to this stage as a parameter.
+create stage twitter.public.mystage
+  url = '<azure_storage_account_url (replace 'https' with 'azure')> /files/'
+  storage_integration = SNOWPIPE_STORAGE_INT
+
+//Creating the pipe. Notification integration is passed to pipe as a parameter. The file format is JSON as we convert the data from twitter api into json format.
+create pipe twitter.public.mypipe
+  auto_ingest = true  //as soon as the file lands in stage path we need to start running the pipe
+  integration = SNOWPIPE_NOTIFICATION_INT
+  as
+  copy into twitter.public.dummy
+  from @twitter.public.mystage
+  file_format = (type = 'JSON');
+
+//Checking for all the pipes in our warehouse
+show pipes
+
+//Describing the specified pipe in Snowflakes  
+desc pipe mypipe
+
+//checking if pipe is up and running
+select SYSTEM$PIPE_STATUS( 'mypipe' );
+
+//checking the stage
+list @twitter.public.mystage
+
+//checking the contents in the table
+select * from twitter.public.dummy
